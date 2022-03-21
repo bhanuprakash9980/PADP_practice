@@ -9,17 +9,17 @@ int n,i,j,k,n_threads;
 double st,end;
 
 for(n=250;n<=1000;n+=250)
-{       a = (int **)malloc(n*sizeof(int **));
+{       a = (int **)malloc(n*sizeof(int *));
        	for(i=0;i<n;i++)
-	a[i]=(int *)malloc(n*sizeof(int*));
+	a[i]=(int *)malloc(n*sizeof(int));
 
-	 b = (int **)malloc(n*sizeof(int**));
+	 b = (int **)malloc(n*sizeof(int*));
         for(i=0;i<n;i++)
-        b[i]=(int *)malloc(n*sizeof(int*));
+        b[i]=(int *)malloc(n*sizeof(int));
 
-	c = (int **)malloc(n*sizeof(int**));
+	c = (int **)malloc(n*sizeof(int*));
         for(i=0;i<n;i++)
-        c[i]=(int *)malloc(n*sizeof(int*));
+        c[i]=(int *)malloc(n*sizeof(int));
 
 
 

@@ -1,37 +1,28 @@
-
-#include<iostream>
-#include<fstream>
-#include<cstring>
+#include<bits/stdc++.h>
 #include<omp.h>
-#define BUFSIZE 32
 using namespace std;
-int main(int argc, char** argv){
-char *fname="words.txt";
-int n_t,n=8,count;
-double st,end;
-for(n_t=1;n_t<=n;n_t*=2)
+int main()
 {
-fstream file;
-char words[4][BUFSIZE]={"fuck","and","your","mistakes"};
-string s;
-st = omp_get_wtime();
-#pragma omp parallel for num_threads(n_t)
+ string words[4]={"fuck","you","and","mistakes"};
+  for(int i=1;i<=8;i*=2)
+{
+double st= omp_get_wtime();
+#pragma omp parallel for num_threads(i)
 for(int k=0;k<4;k++)
-{count=0;
-
-file.open(fname);
-while(file >> s)
 {
-if(strcmp(s.c_str(),words[k])==0)
-{count++;
-}
-}
-cout<<"\t word = "<<words[k]<<"\t count= "<<count<<"\n";
+string s;
+fstream file;
+file.open("words.txt");
+int count =0;
+while(file>>s)
+if(s == words[k])
+count++;
 
+cout<<"Word = "<<words[k]<<" Count = "<<count<<"\n";
 file.close();
 }
-end=omp_get_wtime();
-cout<<"no. of threads = "<<n_t<<"\t time = "<<end-st<<"\n";
+st= omp_get_wtime()-st;
+cout<<"no of threads = "<<i<<" time = "<<st<<"\n";
 }
 return 0;
 }

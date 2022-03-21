@@ -30,7 +30,7 @@ void main(int argc,char** argv)
 	reduced_iter = reduced_iter - iter;
 	if(rank==0)
 	{
-		pi = (double)reduced_count/reduced_iter*4;		
+		pi = (double)reduced_count/reduced_iter*4;
 		end = MPI_Wtime();
 		printf("pi = %lf,\ttime = %lf\n",pi,end-st);
 	}
